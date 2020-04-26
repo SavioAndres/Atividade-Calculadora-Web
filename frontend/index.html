@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html ng-app="app">
-<head>
+<head ng-controller="index">
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Bem vindo</title>
+    <title>{{ index.title }}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script>
-        var app = angular.module("app", []);
-        app.controller("index", function($http, $scope){
-            $http.get("http://localhost/api").then(function(response) {
-                $scope.index = response.data;
-            });
-        });
-    </script>
+    <script src="assets/js/app.js"></script>
 </head>
-<body ng-controller="index">
-    <header class="purple darken-2" style="color: #fff; padding: 1px 0 20px 0;">
-        <div class="container center">
-            <h2>{{ index.Welcome }}</h2>
-            <h3>{{ index.Framework }}</h3>
+<body>
+    <header class="teal" style="color: #fff; padding: 1px 0 30px 0;margin-bottom: 40px;">
+        <div class="container center" ng-controller="index">
+            <h2>{{ index.title }}</h2>
         </div>
     </header>
-    <div class="container center">
-        <h1>{{ index.Body }}</h1>
-        <p>Documentação em <a href="{{ index.link }}" target="_blank">{{ index.link }}</a></p>
+    <div class="container" ng-controller="calculadora">
+        <div class="row">
+            <div class="col s12">
+                <label>Resultado</label>
+                <div class="card-panel teal">
+                <span class="white-text">
+                    <h4 style="margin:0">{{ resultado }}</h4>
+                </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input type="number" placeholder="Primeiro número" ng-model="number1">
+            </div>
+            <div class="input-field col s6">
+                <input type="number" placeholder="Segundo número" ng-model="number2">
+            </div>
+        </div>
+        <div class="row center">
+            <button class="btn" ng-click="calcular('+')">+</button>
+            <button class="btn" ng-click="calcular('-')">-</button>
+            <button class="btn" ng-click="calcular('*')">*</button>
+            <button class="btn" ng-click="calcular('/')">/</button>
+        </div>
     </div>
 </body>
 </html>

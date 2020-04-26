@@ -4,19 +4,22 @@ namespace Controller;
 
 use \App\Routes;
 use \App\IMethod;
+use \Business\Calculadora;
 
 class Index extends Routes implements IMethod
 {
 
     public function get(array $request) : string
     {
-        return '{"Welcome": "Bem vindo", "Framework" : "Skunk API",
-             "Body" : "Hello World!", "link" : "https://github.com/SavioAndres/SkunkAPI"}';
+        return '{"title": "Calculadora WEB"}';
     }
 
     public function post(array $post) : string
     {
-        return '';
+        $calculadora = new Calculadora($post['operacao'], $post['number1'], $post['number2']);
+        $resultado = $calculadora->calcular();
+        $historico = $calculadora->historico();
+        return '{"resultado": "' . $resultado . '", "historico": ' . $historico . '}';
     }
 
     public function put(array $request, array $put) : string

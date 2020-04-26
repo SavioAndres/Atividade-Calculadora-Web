@@ -4,9 +4,9 @@ namespace App;
 
 class Connect
 {
-    private static $HOST = 'localhost';
-    private static $NAME = 'api_test';
-    private static $USER = 'root';
+    private static $HOST = '';
+    private static $NAME = '';
+    private static $USER = '';
     private static $PASS = '';
     private static $instance = null;
 

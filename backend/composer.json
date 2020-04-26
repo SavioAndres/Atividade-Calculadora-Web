@@ -1,5 +1,5 @@
 {
-    "name": "savioandres/api_php",
+    "name": "savioandres/atividade-calculadora-web",
     "description": "Skunk API. PHP framework for organizing code in the project API.",
     "minimum-stability": "stable",
     "license": "MIT",
@@ -14,7 +14,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Controller\\": "controller/"
+            "Controller\\": "controller/",
+            "Business\\": "business/"
         },
         "files": [
             "app/helpers.php"
